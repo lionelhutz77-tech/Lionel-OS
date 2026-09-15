@@ -11,5 +11,6 @@
 - [x] Offline demo writes valid evidence.
 - [ ] A bounded live Codex/OpenAI demo is run only with explicit data approval.
 - [x] Independent security and architecture review passes.
-- [ ] GitHub Actions is green before tagging `v0.1.0`.
-- [ ] Application statements are updated with the real public URL and honest usage metrics.
+- [x] GitHub Actions is green before tagging `v0.1.0`.
+- [x] Application statements are updated with the real public URL and honest usage metrics.
+- [x] Public `v0.1.0` release page contains the verified wheel asset.

@@ -16,7 +16,7 @@ This document maps the public-release plan to verifiable repository artifacts.
 | Five-minute demo | Complete | Offline `lionelos demo` |
 | Independent source/security review | Complete | Claude Code PASS after one medium finding was fixed |
 | Public GitHub repository | Complete | `https://github.com/lionelhutz77-tech/Lionel-OS` |
-| Public `v0.1.0` tag | Blocked on public CI | Tag only after GitHub CI is green |
+| Public `v0.1.0` release | Complete | Green GitHub CI, public tag, release page and verified wheel asset |
 | PyPI release | Optional | Deferred until repository ownership and name are confirmed |
 
 The internal LionelOS evidence history, trading tools and personal automation are not public-release

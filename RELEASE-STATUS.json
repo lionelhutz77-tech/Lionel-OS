@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.1.0",
-  "status": "release_candidate_ci_validation_pending",
+  "status": "released",
   "public_repository_created": true,
   "public_repository_url": "https://github.com/lionelhutz77-tech/Lionel-OS",
   "verified": {
@@ -12,10 +12,9 @@
     "offline_multi_agent_demo": "PASS",
     "evidence_verification": "PASS",
     "independent_claude_review": "PASS after one medium finding was fixed",
-    "github_ci": "PASS on the published foundation; release-candidate commit pending"
+    "github_ci": "PASS on Python 3.11 and 3.12 for the v0.1.0 release commit",
+    "github_release": "PASS; public tag, release page and wheel asset verified"
   },
-  "open": [
-    "confirm release-candidate GitHub Actions",
-    "tag v0.1.0 only after public CI passes"
-  ]
+  "release_url": "https://github.com/lionelhutz77-tech/Lionel-OS/releases/tag/v0.1.0",
+  "open": []
 }
