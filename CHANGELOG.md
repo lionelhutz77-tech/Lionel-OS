@@ -2,7 +2,7 @@
 
 All notable changes are documented here.
 
-## [0.1.0] - Unreleased
+## [0.1.0] - 2026-09-15
 
 ### Added
 
@@ -10,4 +10,3 @@ All notable changes are documented here.
 - Bounded OpenAI Responses, read-only Codex CLI, generic command and static adapters.
 - Deterministic multi-agent consensus, divergence and fail-closed quality gates.
 - Atomic evidence output, offline demo, CI and release-hygiene audit.
-

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.1.0",
-  "status": "public_repository_created_ci_pending",
+  "status": "release_candidate_ci_validation_pending",
   "public_repository_created": true,
   "public_repository_url": "https://github.com/lionelhutz77-tech/Lionel-OS",
   "verified": {
@@ -11,10 +11,11 @@
     "fresh_install": "PASS",
     "offline_multi_agent_demo": "PASS",
     "evidence_verification": "PASS",
-    "independent_claude_review": "PASS after one medium finding was fixed"
+    "independent_claude_review": "PASS after one medium finding was fixed",
+    "github_ci": "PASS on the published foundation; release-candidate commit pending"
   },
   "open": [
-    "confirm GitHub Actions",
+    "confirm release-candidate GitHub Actions",
     "tag v0.1.0 only after public CI passes"
   ]
 }
