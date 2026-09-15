@@ -15,7 +15,7 @@ This document maps the public-release plan to verifiable repository artifacts.
 | GitHub CI and contributor files | Complete | `.github`, `CONTRIBUTING.md`, `SECURITY.md`, changelog |
 | Five-minute demo | Complete | Offline `lionelos demo` |
 | Independent source/security review | Complete | Claude Code PASS after one medium finding was fixed |
-| Public GitHub repository | Blocked on publication choice | Owner and URL placeholders remain |
+| Public GitHub repository | Complete | `https://github.com/lionelhutz77-tech/Lionel-OS` |
 | Public `v0.1.0` tag | Blocked on public CI | Tag only after GitHub CI is green |
 | PyPI release | Optional | Deferred until repository ownership and name are confirmed |
 

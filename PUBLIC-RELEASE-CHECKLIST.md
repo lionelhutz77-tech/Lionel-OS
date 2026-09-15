@@ -2,6 +2,7 @@
 
 - [x] Repository owner is finalized as `lionelhutz77-tech`.
 - [x] Repository URL placeholders are replaced.
+- [x] Separate public repository `lionelhutz77-tech/Lionel-OS` is created from this tree only.
 - [ ] Package and repository names are confirmed available.
 - [ ] No internal history, databases, logs or personal paths are present.
 - [ ] `python scripts/audit_release.py` passes.

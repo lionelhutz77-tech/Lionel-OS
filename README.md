@@ -1,5 +1,7 @@
 # LionelOS
 
+[![CI](https://github.com/lionelhutz77-tech/Lionel-OS/actions/workflows/ci.yml/badge.svg)](https://github.com/lionelhutz77-tech/Lionel-OS/actions/workflows/ci.yml)
+
 **Auditable, provider-agnostic orchestration and governance for multi-agent AI workflows.**
 
 LionelOS coordinates independent AI agents instead of trusting a single answer. It routes a
