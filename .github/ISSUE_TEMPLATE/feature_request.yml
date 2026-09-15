@@ -1,0 +1,17 @@
+name: Feature request
+description: Propose a focused capability or safety improvement.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Trust and data boundary
+      description: Explain what data or permissions the feature would require.
+    validations:
+      required: true
+

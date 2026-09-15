@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "status": "local_and_external_gates_pass_publication_pending",
+  "public_repository_created": false,
+  "verified": {
+    "offline_tests": "17/17 PASS",
+    "release_hygiene": "PASS",
+    "wheel_build": "PASS",
+    "fresh_install": "PASS",
+    "offline_multi_agent_demo": "PASS",
+    "evidence_verification": "PASS",
+    "independent_claude_review": "PASS after one medium finding was fixed"
+  },
+  "open": [
+    "create public repository and confirm GitHub Actions",
+    "tag v0.1.0 only after public CI passes"
+  ]
+}

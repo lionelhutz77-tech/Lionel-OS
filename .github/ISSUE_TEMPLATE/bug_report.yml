@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible LionelOS defect without sensitive data.
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Remove credentials, private prompts and repository content.
+    validations:
+      required: true
+

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lionelos"
+version = "0.1.0"
+description = "Auditable, provider-agnostic orchestration for multi-agent AI workflows"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "LionelOS contributors"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/lionelhutz77-tech/Lionel-OS"
+Issues = "https://github.com/lionelhutz77-tech/Lionel-OS/issues"
+
+[project.scripts]
+lionelos = "lionelos.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

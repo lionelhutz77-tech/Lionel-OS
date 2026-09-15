@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "task": {
+    "task_id": "example-repository-review",
+    "objective": "Assess whether the described change is ready to merge.",
+    "context": "The public API is documented, the offline tests pass, and the release audit reports no secrets.",
+    "constraints": [
+      "read-only review",
+      "do not infer facts outside the supplied context"
+    ]
+  },
+  "providers": {
+    "maintainer": {
+      "kind": "static",
+      "response": {
+        "verdict": "approve",
+        "summary": "The stated release checks pass.",
+        "findings": []
+      }
+    },
+    "reviewer": {
+      "kind": "static",
+      "response": {
+        "verdict": "approve",
+        "summary": "The stated scope and checks are consistent.",
+        "findings": []
+      }
+    },
+    "skeptic": {
+      "kind": "static",
+      "response": {
+        "verdict": "abstain",
+        "summary": "No independent performance evidence was supplied.",
+        "findings": []
+      }
+    }
+  },
+  "agents": [
+    {"name": "maintainer", "role": "verify release readiness", "provider": "maintainer"},
+    {"name": "reviewer", "role": "look for correctness regressions", "provider": "reviewer"},
+    {"name": "skeptic", "role": "challenge unsupported claims", "provider": "skeptic"}
+  ]
+}
+

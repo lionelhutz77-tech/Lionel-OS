@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.venv*/
+venv/
+build/
+dist/
+*.egg-info/
+.env
+.env.*
+!.env.example
+evidence/*.json
+!evidence/.gitkeep
+APPLICATION-DRAFT.md
