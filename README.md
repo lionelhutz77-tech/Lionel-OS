@@ -82,3 +82,11 @@ execution layer may consume an authorized proposal, but provider output alone ca
 ## License
 
 MIT.
+
+## Research-book preparation (development)
+
+`lionelos-research` provides a local source, passage, claim and counterevidence ledger.
+`python -m lionelos.local_writer` accepts a bounded JSON evidence packet on stdin and
+uses an installed local Ollama model only. See [research workflow](docs/RESEARCH-WORKFLOW.md)
+and [book setup](docs/BOOK-PROJECT.md) for current limits. These modules do not yet constitute
+an unattended research-to-book system. Windows diagnostic: `scripts/Test-LocalResearch.ps1`.

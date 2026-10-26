@@ -12,12 +12,12 @@ from .orchestrator import Orchestrator
 
 STAGES = ('research', 'outline', 'bible', 'draft', 'revision', 'review')
 INSTRUCTIONS = {
- 'research': 'Build a research dossier from supplied sources. Record source IDs for claims, distinguish fact, inference and fiction; list unanswered questions. Never invent citations.',
- 'outline': 'Plan the complete book including ending, causal plot, character arcs, pacing, chapter objectives, setups and payoffs.',
- 'bible': 'Create the canonical character, setting, chronology, rules and continuity reference using the approved outline and research.',
- 'draft': 'Write the requested chapter as finished prose, respecting the complete outline, research, bible and previous chapters. Keep voice, causality and continuity consistent.',
- 'revision': 'Revise the requested chapter against the whole book. Resolve continuity, motivation, pacing, exposition and repetition issues; preserve established facts.',
- 'review': 'Audit the complete manuscript for factual support, unresolved research, continuity, causality, character arcs, pacing, style, repetitions and ending/payoffs. Reject unresolved material problems. Literary quality is a judgment, not a guarantee.'
+ 'research': 'Compile a critical research dossier from supplied evidence only. Separate facts, interpretation, hypotheses and normative judgments. Preserve claim markers. Record gaps and counterevidence. No invented references.',
+ 'outline': 'Plan the complete nonfiction argument: research question, definitions, scope, methods, competing hypotheses, historical comparison, counterevidence, conclusions and limitations. No predetermined conclusion.',
+ 'bible': 'Build a reference of definitions, chronology, claim IDs, evidence, competing explanations and unresolved contradictions. Distinguish legal estates, economic classes and elites.',
+ 'draft': 'Write the requested nonfiction chapter using only supplied evidence. Preserve [claim:ID] markers. Explain mechanisms and uncertainty. Do not infer causality from analogy or correlation.',
+ 'revision': 'Revise the chapter for evidence fidelity, clarity, consistent definitions, counterarguments and proportional conclusions. Keep source and claim markers. Never resolve missing evidence by invention.',
+ 'review': 'Audit the nonfiction manuscript for unsupported claims, citation accuracy, source criticism, selection bias, causal inference, historical comparability, counterevidence and conclusions. Reject material unresolved problems.'
 }
 
 def write(path, value):
