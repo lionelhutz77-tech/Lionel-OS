@@ -25,6 +25,8 @@ Issues = "https://github.com/lionelhutz77-tech/Lionel-OS/issues"
 
 [project.scripts]
 lionelos = "lionelos.cli:main"
+lionelos-book = "lionelos.book:main"
+lionelos-research = "lionelos.research:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
