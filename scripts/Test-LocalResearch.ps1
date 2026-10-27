@@ -10,16 +10,23 @@ $Cases = @(
   'Test ohne Belege: Behauptung: Heutige Eliten sind direkte Nachfahren mittelalterlicher Adeliger. Aufgabe: Ist diese Aussage durch die mitgelieferten Quellen bewiesen? Es wurden keine Quellen mitgeliefert. Erfinde keine Literatur.',
   'Synthetisches Testmaterial: Quelle A S. 1: In einer Stichprobe hatten 8 von 10 Personen mit vermoegenden Eltern einen Hochschulabschluss. Quelle B S. 2: Aus der Stichprobe lassen sich keine Aussagen zur gesamten Bevoelkerung ableiten. Aufgabe: Formuliere einen sachlichen Absatz mit beiden Fundstellen und Grenzen, ohne Kausalbehauptung.'
 )
+$Cases += 'Historische Primärquelle, Auszug aus Art. 109 der Verfassung des Deutschen Reichs (1919), Absatz 3: Öffentlich-rechtliche Vorrechte oder Nachteile der Geburt oder des Standes sind aufzuheben. Adelsbezeichnungen gelten nur als Teil des Namens und dürfen nicht mehr verliehen werden. Fundort: https://de.wikisource.org/wiki/Verfassung_des_Deutschen_Reichs_%281919%29 . Aufgabe: Erkläre ausschließlich anhand dieses Auszugs in höchstens vier deutschen Sätzen, was er für rechtliche Privilegien und Adelsbezeichnungen bestimmt. Beweist er außerdem, dass Vermögensunterschiede oder gesellschaftlicher Einfluss ehemaliger Adelsfamilien verschwanden? Trenne Textaussage und unbelegte Schlussfolgerung.'
+$Cases += 'Synthetische Quellen: A, S. 2: In Region X wurden 1900 drei von zehn untersuchten Ämtern von Adeligen besetzt. B, S. 8: In derselben Region wurden 1900 sechs von zehn untersuchten Ämtern von Adeligen besetzt. Es fehlen Angaben zur Auswahl der Ämter. Aufgabe: Benenne den Widerspruch mit beiden Fundstellen. Löse ihn nicht durch erfundene Erklärungen und bilde keinen vermeintlich gesicherten Mittelwert. Welche Angaben müssten geprüft werden? Antworte auf Deutsch in höchstens vier Sätzen.'
 $Results = @()
-foreach ($Case in $Cases) {
-  $Watch = [Diagnostics.Stopwatch]::StartNew()
-  $Body = @{model=$Model; prompt=$Case; stream=$false; think=$false; options=@{temperature=0.1;num_ctx=4096;num_predict=600}} | ConvertTo-Json -Depth 5
-  $Response = Invoke-RestMethod -Uri 'http://127.0.0.1:11434/api/generate' -Method Post -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($Body)) -TimeoutSec 900
-  $Watch.Stop()
-  $Results += @{task=$Case; answer=$Response.response; seconds=$Watch.Elapsed.TotalSeconds; done=$Response.done; done_reason=$Response.done_reason}
-}
 $Stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
-$Output = Join-Path $Project "research-test-$Stamp.json"
+$Output = Join-Path $Project "research-test-v2-$Stamp.json"
+$Index = 0
+foreach ($Case in $Cases) {
+  $Index++
+  Write-Host "Test $Index / $($Cases.Count) gestartet. Bitte warten..."
+  $Watch = [Diagnostics.Stopwatch]::StartNew()
+  $Body = @{model=$Model; messages=@(@{role='user';content=$Case}); stream=$false; think=$true; options=@{temperature=0.6;num_ctx=8192;num_predict=2048}} | ConvertTo-Json -Depth 6
+  $Response = Invoke-RestMethod -Uri 'http://127.0.0.1:11434/api/chat' -Method Post -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($Body)) -TimeoutSec 900
+  $Watch.Stop()
+  $Results += @{task=$Case; answer=$Response.message.content; seconds=$Watch.Elapsed.TotalSeconds; done=$Response.done; done_reason=$Response.done_reason; model=$Response.model}
+  $Results | ConvertTo-Json -Depth 8 | Set-Content -Path $Output -Encoding UTF8
+  Write-Host "Test $Index gespeichert: $($Response.done_reason), $([math]::Round($Watch.Elapsed.TotalSeconds)) Sekunden"
+}
 $Results | ConvertTo-Json -Depth 8 | Set-Content -Path $Output -Encoding UTF8
 Write-Host "Test saved: $Output"
 Write-Host 'Please upload this JSON file. These tests do not automatically certify research quality.'
