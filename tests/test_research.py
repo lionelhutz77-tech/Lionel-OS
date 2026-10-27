@@ -36,11 +36,11 @@ class ResearchTests(unittest.TestCase):
         from unittest.mock import MagicMock
         opener=MagicMock()
         response=opener.open.return_value.__enter__.return_value
-        response.read.return_value=json.dumps({'done':True,'done_reason':'stop','response':'Evidence-based text'}).encode()
+        response.read.return_value=json.dumps({'done':True,'done_reason':'stop','message':{'content':'Evidence-based text'}}).encode()
         with patch('urllib.request.build_opener',return_value=opener):
             self.assertEqual(generate({'job':'test'}),'Evidence-based text')
             request=opener.open.call_args.args[0]
-            self.assertEqual(request.full_url,'http://127.0.0.1:11434/api/generate')
-            self.assertFalse(json.loads(request.data)['think'])
+            self.assertEqual(request.full_url,'http://127.0.0.1:11434/api/chat')
+            self.assertTrue(json.loads(request.data)['think'])
             response.read.return_value=json.dumps({'done':True,'done_reason':'length','response':'cut'}).encode()
             with self.assertRaises(ValueError): generate({})
